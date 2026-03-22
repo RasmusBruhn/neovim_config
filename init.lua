@@ -205,13 +205,17 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- Git command shortcuts
+-- Bracket auto-completion
 vim.keymap.set('i', "'", "''<Left>", { desc = 'Auto-complete quotes' })
 vim.keymap.set('i', '"', '""<Left>', { desc = 'Auto-complete double quotes' })
 vim.keymap.set('i', '(', '()<Left>', { desc = 'Auto-complete brackets' })
 vim.keymap.set('i', '[', '[]<Left>', { desc = 'Auto-complete square brackets' })
 vim.keymap.set('i', '{', '{}<Left>', { desc = 'Auto-complete curly brackets' })
 vim.keymap.set('i', '<', '<><Left>', { desc = 'Auto-complete sharp brackets' })
+
+-- git shortcuts
+vim.keymap.set('n', '<leader>gs', ':wa | :!git status', { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>ga', ':wa | :!git add ', { desc = '[G]it [A]dd' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -354,6 +358,7 @@ require('lazy').setup({
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>g', group = '[G]it' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
